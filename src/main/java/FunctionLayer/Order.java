@@ -6,34 +6,49 @@ package FunctionLayer;
  */
 public class Order {
     
-    private int id;
+    private int customerId;
     private int længde;
     private int bredde;
     private int højde;
     private int orderId;
-    private int date;
+    private String afsendt; //TODO Timestamp
     private int allBlocks;
 
-    public Order(int id, int længde, int bredde, int højde, int orderId, int date, int allBlocks) {
-        this.id = id;
+    public Order(int customerId, int længde, int bredde, int højde, int orderId, String afsendt, int allBlocks) {
+        this.customerId = customerId;
         this.længde = længde;
         this.bredde = bredde;
         this.højde = højde;
         this.orderId = orderId;
-        this.date = date;
+        this.afsendt = afsendt;
         this.allBlocks = allBlocks;
     }
+
+    public Order(int customerId, int længde, int bredde, int højde, int orderId, String afsendt) {
+        this.customerId = customerId;
+        this.længde = længde;
+        this.bredde = bredde;
+        this.højde = højde;
+        this.orderId = orderId;
+        this.afsendt = afsendt;
+    }
     
-    public Order() {
-        
+    //TODO Tilføj afsendt når timestamp er lavet på ordren. Husk at rette i orderMapper createOrder
+    public Order(int customerId, int længde, int bredde, int højde) {
+        this.customerId = customerId;
+        this.længde = længde;
+        this.bredde = bredde;
+        this.højde = højde;
+    }
+    
+    
+
+    public int getCustomerId() {
+        return customerId;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
+    public void setCustomerId(int customerId) {
+        this.customerId = customerId;
     }
 
     public int getLængde() {
@@ -68,12 +83,12 @@ public class Order {
         this.orderId = orderId;
     }
 
-    public int getDate() {
-        return date;
+    public String getAfsendt() {
+        return afsendt;
     }
 
-    public void setDate(int date) {
-        this.date = date;
+    public void setAfsendt(String afsendt) {
+        this.afsendt = afsendt;
     }
 
     public int getAllBlocks() {
@@ -86,12 +101,7 @@ public class Order {
 
     @Override
     public String toString() {
-        return "Order{" + "id=" + id + ", l\u00e6ngde=" + længde + ", bredde=" + bredde + ", h\u00f8jde=" + højde + ", orderId=" + orderId + ", date=" + date + ", allBlocks=" + allBlocks + '}';
+        return "Order{" + "customerId=" + customerId + ", l\u00e6ngde=" + længde + ", bredde=" + bredde + ", h\u00f8jde=" + højde + ", orderId=" + orderId + ", afsendt=" + afsendt + ", allBlocks=" + allBlocks + '}';
     }
 
-    
-    
-    
-    
-    
 }

@@ -62,14 +62,14 @@ public class CustomerControlerServlet extends HttpServlet {
                     showProducts.setBredde(width);
                     showProducts.setHøjde(heigth);
                     
-                    BlocksLengthToCalculator udregnetLængde = cal.calculateBlocksLength(length);
-                    BlocksWidthToCalculator udregnetBredde = cal. calculateBlocksWidth(width);
-                    int result = cal.blocksAndLeyers(heigth, udregnetLængde, udregnetBredde);
+//                    BlocksLengthToCalculator udregnetLængde = cal.calculateBlocksLength(length);
+//                    BlocksWidthToCalculator udregnetBredde = cal. calculateBlocksWidth(width);
+//                    int result = cal.blocksAndLeyers(heigth, udregnetLængde, udregnetBredde);
                     
                     
                     
-                    showProducts.setAllBlocks(result);
-                    request.getRequestDispatcher("customerpage.jsp").forward(request, response);
+//                    showProducts.setAllBlocks(result);
+//                    request.getRequestDispatcher("customerpage.jsp").forward(request, response);
                     
                     
                     break;

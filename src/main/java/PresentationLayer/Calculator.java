@@ -31,7 +31,7 @@ public class Calculator extends Command {
         HttpSession session = request.getSession();
         session.setAttribute("length", length);
         session.setAttribute("width", width);
-        session.setAttribute("heigth", layers);
+        session.setAttribute("layers", layers);
         
         //Initier en ordre
 //        Order setOrder = new Order();
@@ -39,7 +39,7 @@ public class Calculator extends Command {
         //Setter ordren så den senere kan skrives til db
 //        setOrder.setLængde(length);
 //        setOrder.setBredde(width);
-//        setOrder.setHøjde(heigth);
+//        setOrder.setHøjde(layers);
         
         //Mapper skal ind her og skrive ordren til db
         
