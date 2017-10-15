@@ -47,20 +47,20 @@ public class CustomerControlerServlet extends HttpServlet {
             switch (origin) {
                 case "showProduct":
                     
-                    Order showProducts = new Order();
-                    CalculateLegoHouse cal = new CalculateLegoHouse();
-                    
-                    int length = Integer.parseInt(request.getParameter("length"));
-                    int width = Integer.parseInt(request.getParameter("width"));
-                    int heigth = Integer.parseInt(request.getParameter("height"));
-                    
-                    session.setAttribute("length", length);
-                    session.setAttribute("width", width);
-                    session.setAttribute("heigth", heigth);
-                    
-                    showProducts.setLængde(length);
-                    showProducts.setBredde(width);
-                    showProducts.setHøjde(heigth);
+//                    Order showProducts = new Order();
+//                    CalculateLegoHouse cal = new CalculateLegoHouse();
+//                    
+//                    int length = Integer.parseInt(request.getParameter("length"));
+//                    int width = Integer.parseInt(request.getParameter("width"));
+//                    int heigth = Integer.parseInt(request.getParameter("height"));
+//                    
+//                    session.setAttribute("length", length);
+//                    session.setAttribute("width", width);
+//                    session.setAttribute("heigth", heigth);
+//                    
+//                    showProducts.setLængde(length);
+//                    showProducts.setBredde(width);
+//                    showProducts.setHøjde(heigth);
                     
 //                    BlocksLengthToCalculator udregnetLængde = cal.calculateBlocksLength(length);
 //                    BlocksWidthToCalculator udregnetBredde = cal. calculateBlocksWidth(width);

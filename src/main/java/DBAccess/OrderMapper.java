@@ -14,15 +14,19 @@ import java.sql.Statement;
  */
 public class OrderMapper {
     
+    //TODO Tilføj dato
     public static void createOrder( Order order ) throws LoginSampleException, SQLException {
         try {
             Connection con = Connector.connection();
-            String SQL = "INSERT INTO orderlist (længde, bredde, højde, id) VALUES (?, ?, ?, ?)";
+            String SQL = "INSERT INTO orderlist (id, length, width, layers, shipped) VALUES (?, ?, ?, ?, ?)";
             PreparedStatement ps = con.prepareStatement( SQL, Statement.RETURN_GENERATED_KEYS );
-            ps.setInt( 1, order.getLængde() );
-            ps.setInt( 2, order.getBredde() );
-            ps.setInt( 3, order.getHøjde() );
-            ps.setInt( 4, order.getCustomerId() );
+            
+            ps.setInt( 1, order.getCustomerId() );
+            ps.setInt( 2, order.getLength() );
+            ps.setInt( 3, order.getWidth() );
+            ps.setInt( 4, order.getLayers() );
+            ps.setString( 5, order.getShipped() );
+            
             ps.executeUpdate();
             ResultSet ids = ps.getGeneratedKeys();
             ids.next();
@@ -47,14 +51,13 @@ public class OrderMapper {
             if (rs.next()) {
 
                 int orderId = rs.getInt("orderid");
-                int længde = rs.getInt("længde");
-                int bredde = rs.getInt("bredde");
-                int højde = rs.getInt("højde");
                 int customerId = rs.getInt("id");
-                String afsendt = rs.getDate("afsendt").toString();
-                
-
-                li = new Order(orderId, længde, bredde, højde, orderId, afsendt);
+                int length = rs.getInt("length");
+                int width = rs.getInt("width");
+                int layers = rs.getInt("layers");
+                String shipped = rs.getString("shipped"); //Hvis date i db String shipped = rs.getDate("shipped").toString();
+               
+                li = new Order(customerId, orderId, length, width, layers, shipped);
             } else {
                 throw new LoginSampleException( "Could not validate user" );
             }
@@ -66,15 +69,15 @@ public class OrderMapper {
         return li;
     }
     
-    public static void main(String[] args) throws LoginSampleException {
+    public static void main(String[] args) throws LoginSampleException, SQLException {
         
         //Test af createOrder
         OrderMapper or = new OrderMapper();
-        Order order = new Order(1, 7, 7, 7);
-        //or.
+        Order order = new Order(3, 7, 7, 7, "2017-12-12");
+        OrderMapper.createOrder(order);
         
         //Test af getOrderData
-        System.out.println(or.getOrderData(1));
+        System.out.println(or.getOrderData(2));
         
     }
     

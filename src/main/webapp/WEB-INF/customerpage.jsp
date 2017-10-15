@@ -47,21 +47,5 @@
                     <button type="submit" value="action" name="checkout">Checkout </button>  -->
                 </form>
         
-        <!--<%  
-            //BlocksLengthToCalculator all = new BlocksLengthToCalculator();
-            //RendUtilAllBlocks ruall = new RendUtilAllBlocks();
-        
-           //List<BlocksLengthToCalculator> blockList = all.getAllBlockLength();
-            %>
-        <div>
-           <%// RendUtilAllBlocks.blockLengthTable(blockList); %>
-        </div>
-       <%
-         //int  blok = all.getAmountBlock2X4Length();
-       //out.println(blok);
-       
-       
-       %>
-        -->
     </body>
 </html>

@@ -1,9 +1,11 @@
 package PresentationLayer;
 
-import FunctionLayer.BlocksLengthToCalculator;
+import FunctionLayer.BlockToCalculator;
 import FunctionLayer.FacadeCalculator;
 import FunctionLayer.LoginSampleException;
 import FunctionLayer.Order;
+import FunctionLayer.FacadeOrderToDB;
+import FunctionLayer.User;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -33,21 +35,38 @@ public class Calculator extends Command {
         session.setAttribute("width", width);
         session.setAttribute("layers", layers);
         
-        //Initier en ordre
-//        Order setOrder = new Order();
+        //customerId skal med new i databasen for ordren
+        User user = new User();
+        int customerId = user.getId();
         
-        //Setter ordren så den senere kan skrives til db
-//        setOrder.setLængde(length);
-//        setOrder.setBredde(width);
-//        setOrder.setHøjde(layers);
-        
-        //Mapper skal ind her og skrive ordren til db
+        //Skriver ordren til databsen gennem facaden
+        Order order = FacadeOrderToDB.createOrder(customerId, length, width, layers);
         
         //Skal kalde udregningsmetoderne i FacadeCalculator
-//        BlocksLengthToCalculator amountBlockLength = FacadeCalculator.amountLength(length);
+        BlockToCalculator blockLength = FacadeCalculator.calculateBlocksLength(length);
+        BlockToCalculator blockWidth = FacadeCalculator.calculateBlokWidth(width);
+        int allBlocks = FacadeCalculator.totalBlock(layers, blockLength, blockWidth);
         
         //returner til buy.jsp
         return "buy";
+    }
+    
+    public static void main(String[] args) throws LoginSampleException {
+        int customerId = 3;
+        int blockLength = 14;
+        int blockWidth = 9;
+        int layers = 4;
+        
+        //Test af createOrder metoden. Kan skrive til databasen herfra
+        FacadeOrderToDB.createOrder(customerId, blockLength, blockWidth, layers);
+        
+//        FacadeCalculator.calculateBlocksLength(blockLength);
+//        FacadeCalculator.calculateBlokWidth(blockWidth);
+//        //FacadeCalculator.totalBlock(layers, blockLength, blockWidth);
+//        
+//        System.out.println(blockLength);
+//        System.out.println(blockWidth);
+        
     }
 
 }

@@ -7,41 +7,50 @@ package FunctionLayer;
 public class Order {
     
     private int customerId;
-    private int længde;
-    private int bredde;
-    private int højde;
+    private int length;
+    private int width;
+    private int layers;
     private int orderId;
-    private String afsendt; //TODO Timestamp
+    private String shipped; //TODO Timestamp
     private int allBlocks;
 
-    public Order(int customerId, int længde, int bredde, int højde, int orderId, String afsendt, int allBlocks) {
+    public Order(int customerId, int length, int width, int layers, int orderId, String shipped, int allBlocks) {
         this.customerId = customerId;
-        this.længde = længde;
-        this.bredde = bredde;
-        this.højde = højde;
+        this.length = length;
+        this.width = width;
+        this.layers = layers;
         this.orderId = orderId;
-        this.afsendt = afsendt;
+        this.shipped = shipped;
         this.allBlocks = allBlocks;
     }
 
-    public Order(int customerId, int længde, int bredde, int højde, int orderId, String afsendt) {
+    public Order(int customerId, int length, int width, int layers, String shipped) {
         this.customerId = customerId;
-        this.længde = længde;
-        this.bredde = bredde;
-        this.højde = højde;
+        this.length = length;
+        this.width = width;
+        this.layers = layers;
+        this.shipped = shipped;
+    }
+
+    public Order(int customerId, int orderId, int length, int width, int layers, String shipped) {
+        this.customerId = customerId;
         this.orderId = orderId;
-        this.afsendt = afsendt;
+        this.length = length;
+        this.width = width;
+        this.layers = layers;
+        this.shipped = shipped;
     }
-    
-    //TODO Tilføj afsendt når timestamp er lavet på ordren. Husk at rette i orderMapper createOrder
-    public Order(int customerId, int længde, int bredde, int højde) {
+
+    public Order(int customerId, int length, int width, int layers) {
         this.customerId = customerId;
-        this.længde = længde;
-        this.bredde = bredde;
-        this.højde = højde;
+        this.length = length;
+        this.width = width;
+        this.layers = layers;
     }
-    
-    
+
+    public Order() {
+        
+    }
 
     public int getCustomerId() {
         return customerId;
@@ -51,28 +60,28 @@ public class Order {
         this.customerId = customerId;
     }
 
-    public int getLængde() {
-        return længde;
+    public int getLength() {
+        return length;
     }
 
-    public void setLængde(int længde) {
-        this.længde = længde;
+    public void setLength(int length) {
+        this.length = length;
     }
 
-    public int getBredde() {
-        return bredde;
+    public int getWidth() {
+        return width;
     }
 
-    public void setBredde(int bredde) {
-        this.bredde = bredde;
+    public void setWidth(int width) {
+        this.width = width;
     }
 
-    public int getHøjde() {
-        return højde;
+    public int getLayers() {
+        return layers;
     }
 
-    public void setHøjde(int højde) {
-        this.højde = højde;
+    public void setLayers(int layers) {
+        this.layers = layers;
     }
 
     public int getOrderId() {
@@ -83,12 +92,12 @@ public class Order {
         this.orderId = orderId;
     }
 
-    public String getAfsendt() {
-        return afsendt;
+    public String getShipped() {
+        return shipped;
     }
 
-    public void setAfsendt(String afsendt) {
-        this.afsendt = afsendt;
+    public void setShipped(String shipped) {
+        this.shipped = shipped;
     }
 
     public int getAllBlocks() {
@@ -101,7 +110,7 @@ public class Order {
 
     @Override
     public String toString() {
-        return "Order{" + "customerId=" + customerId + ", l\u00e6ngde=" + længde + ", bredde=" + bredde + ", h\u00f8jde=" + højde + ", orderId=" + orderId + ", afsendt=" + afsendt + ", allBlocks=" + allBlocks + '}';
+        return "Order{" + "customerId=" + customerId + ", length=" + length + ", width=" + width + ", layers=" + layers + ", orderId=" + orderId + ", shipped=" + shipped + ", allBlocks=" + allBlocks + '}';
     }
 
 }

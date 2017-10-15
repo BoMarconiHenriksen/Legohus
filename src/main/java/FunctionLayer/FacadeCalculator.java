@@ -6,59 +6,37 @@ package FunctionLayer;
  */
 public class FacadeCalculator  {
     
-//public static User login( String email, String password ) throws LoginSampleException {
-//        return UserMapper.login( email, password );
-//    } 
-//
-//    public static User createUser( String email, String password ) throws LoginSampleException {
-//        User user = new User(email, password, "customer");
-//        UserMapper.createUser( user );
-//        return user;
-//    }
+public static BlockToCalculator calculateBlocksLength(int length) throws LoginSampleException {
+    return CalculateLegoHouse.calculateBlocksLength(length);
+}
+
+public static BlockToCalculator calculateBlokWidth(int width) throws LoginSampleException {
+    return CalculateLegoHouse.calculateBlocksWidth(width);
+}
+
+public static int totalBlock(int layers, BlockToCalculator length, BlockToCalculator width) {
+    return CalculateLegoHouse.totalBlocks(layers, length, width);
+}
     
-//    public static BlocksLengthToCalculator amountLength(int længde) throws LoginSampleException{
+    //Kun til test
+    public static void main(String[] args) throws LoginSampleException {
+        int length = 13;
+        int width = 9;
+        int layers = 4;
         
-//        BlocksLengthToCalculator amountBlockLength = new BlocksLengthToCalculator();
-//        CalculateLegoHouse cal = new CalculateLegoHouse();
-//        
-//        cal.calculateBlocksLength(længde);
-//        
-////        Henter antal klodser for længden.
-//        amountBlockLength.getAmountBlock2X4Length();
-//        amountBlockLength.getAmountBlock2x2Length();
-//        amountBlockLength.getAmountBlock1x2Length();
-//        
-//        return amountBlockLength;
-//    }
-
-//    BlocksLengthToCalculator længde = new BlocksLengthToCalculator();
-//    BlocksWidthToCalculator bredde = new BlocksWidthToCalculator();
-    
-//    Order or = new Order();
-//    CalculateLegoHouse cal = new CalculateLegoHouse();
-//    BlocksLengthToCalculator bl = new BlocksLengthToCalculator();
-//    
-//    //Lav en metode som gør neden stående evt. throw exception i klassen
-//    int længdeFraBruger = or.getLængde();
-//    int breddeFraBruger = or.getBredde();
-//    int højdeFraBruger = or.getHøjde();
-//    
-//    BlocksLengthToCalculator resultlængde = cal.calculateBlocksLength(længdeFraBruger);
-//    BlocksWidthToCalculator resultbredde = cal.calculateBlocksLength(breddeFraBruger);
-//    BlocksLengthToCalculator resulthøjde = cal.calculateBlocksLength(højdeFraBruger);
-
-
-
-
-//    int result2 = cal.calculateBlocksLength(længdeFraBruger);
-//    
-//    cal.calculateBlocksLength();
-//    calculateBlocksLength();
-    
-    
-    
-    
-    
-    
+        //Test af calculateBlocksLength metoden
+        BlockToCalculator hs = calculateBlocksLength(length);
+        System.out.println(hs);
+        
+        //Test af calculateBlokWidth metoden
+        BlockToCalculator bs = calculateBlokWidth(width);
+        System.out.println(bs);
+        
+        //Test af hvor mange klodser i alt
+        int amountBlok = totalBlock(layers, hs, bs);
+        System.out.println(amountBlok);
+        
+        
+    }
     
 }
