@@ -6,7 +6,7 @@ package FunctionLayer;
  */
 public class Order {
     
-    private int customerId;
+    private int id;
     private int length;
     private int width;
     private int layers;
@@ -14,8 +14,8 @@ public class Order {
     private String shipped; //TODO Timestamp
     private int allBlocks;
 
-    public Order(int customerId, int length, int width, int layers, int orderId, String shipped, int allBlocks) {
-        this.customerId = customerId;
+    public Order(int id, int length, int width, int layers, int orderId, String shipped, int allBlocks) {
+        this.id = id;
         this.length = length;
         this.width = width;
         this.layers = layers;
@@ -24,16 +24,16 @@ public class Order {
         this.allBlocks = allBlocks;
     }
 
-    public Order(int customerId, int length, int width, int layers, String shipped) {
-        this.customerId = customerId;
+    public Order(int id, int length, int width, int layers, String shipped) {
+        this.id = id;
         this.length = length;
         this.width = width;
         this.layers = layers;
         this.shipped = shipped;
     }
 
-    public Order(int customerId, int orderId, int length, int width, int layers, String shipped) {
-        this.customerId = customerId;
+    public Order(int id, int orderId, int length, int width, int layers, String shipped) {
+        this.id = id;
         this.orderId = orderId;
         this.length = length;
         this.width = width;
@@ -41,8 +41,14 @@ public class Order {
         this.shipped = shipped;
     }
 
-    public Order(int customerId, int length, int width, int layers) {
-        this.customerId = customerId;
+    public Order(int id, int length, int width, int layers) {
+        this.id = id;
+        this.length = length;
+        this.width = width;
+        this.layers = layers;
+    }
+    
+    public Order(int length, int width, int layers) {
         this.length = length;
         this.width = width;
         this.layers = layers;
@@ -52,12 +58,12 @@ public class Order {
         
     }
 
-    public int getCustomerId() {
-        return customerId;
+    public int getId() {
+        return id;
     }
 
-    public void setCustomerId(int customerId) {
-        this.customerId = customerId;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getLength() {
@@ -110,7 +116,7 @@ public class Order {
 
     @Override
     public String toString() {
-        return "Order{" + "customerId=" + customerId + ", length=" + length + ", width=" + width + ", layers=" + layers + ", orderId=" + orderId + ", shipped=" + shipped + ", allBlocks=" + allBlocks + '}';
+        return "Order{" + "customerId=" + id + ", length=" + length + ", width=" + width + ", layers=" + layers + ", orderId=" + orderId + ", shipped=" + shipped + ", allBlocks=" + allBlocks + '}';
     }
 
 }

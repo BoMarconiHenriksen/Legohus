@@ -23,6 +23,16 @@ public class User {
         this.password = password;
         this.role = role;
     }
+
+    public User(int id, String email, String role) {
+        this.id = id;
+        this.email = email;
+        this.role = role;
+    }
+    
+    public User(int id) {
+        this.id = id;
+    }
     
     public User() {
         
@@ -59,5 +69,12 @@ public class User {
     public void setId( int id ) {
         this.id = id;
     }
+
+    @Override
+    public String toString() {
+        return "User{" + "id=" + id + ", email=" + email + ", password=" + password + ", role=" + role + '}';
+    }
+    
+    
 
 }

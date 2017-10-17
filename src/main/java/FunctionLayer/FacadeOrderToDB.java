@@ -11,8 +11,8 @@ import java.util.logging.Logger;
  */
 public class FacadeOrderToDB {
     
-    public static Order createOrder( int customerId, int length, int width, int layers ) throws LoginSampleException {
-        Order order = new Order(customerId, length, width, layers);
+    public static Order createOrder( int id, int length, int width, int layers ) throws LoginSampleException {
+        Order order = new Order(id, length, width, layers);
         try {
             OrderMapper.createOrder(order);
         } catch (SQLException ex) {

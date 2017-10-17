@@ -1,7 +1,10 @@
 package FunctionLayer;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import FunctionLayer.BlockToCalculator;
 
 /**
  *
@@ -9,43 +12,83 @@ import java.util.logging.Logger;
  */
 public class CalculateLegoHouse {
     
-    public static BlockToCalculator calculateBlocksLength(int length) throws LoginSampleException { 
-
+    
+    
+    
+    public static List <BlockToCalculator> calculateBlocksLength(int length) throws LoginSampleException { 
+        List<BlockToCalculator> blockList = new ArrayList();
         int remainderLength = length % 4;
         
         switch (remainderLength) {
             case 3: {
+                
+                //BlockToCalculator blocks = null;
+                
                 //Antallet af 4x2 klodser på længden
                 //Gange med 2 for at få for begge sider
                 int amountBlock2x4Length = (length / 4) * 2;
                 int amountBlock2x2Length = 1 * 2;
                 int amountBlock1x2Length = 1 * 2;
-
-                return new BlockToCalculator(amountBlock2x4Length, amountBlock2x2Length, amountBlock1x2Length);
+                int block2x4Width = 0;
+                int block2x2Width = 0;
+                int block1x2Width = 0;
+                
+                BlockToCalculator blocks = new BlockToCalculator(amountBlock2x4Length, amountBlock2x2Length, amountBlock1x2Length, block2x4Width, block2x2Width, block1x2Width);
+                blockList.add(blocks);
+                return blockList;
+//                return new BlockToCalculator(amountBlock2x4Length, amountBlock2x2Length, amountBlock1x2Length);
                 
             }
             case 2: {
+                BlockToCalculator blocks = null;
+                
                 int amountBlock2x4Length = (length / 4) * 2;
                 int amountBlock2x2Length = 1 * 2;
                 int amountBlock1x2Length = 0;
-
-                return new BlockToCalculator(amountBlock2x4Length, amountBlock2x2Length, amountBlock1x2Length);
+                int block2x4Width = 0;
+                int block2x2Width = 0;
+                int block1x2Width = 0;
+                
+                blocks = new BlockToCalculator(amountBlock2x4Length, amountBlock2x2Length, amountBlock1x2Length, block2x4Width, block2x2Width, block1x2Width);
+                blockList.add(blocks);
+                return blockList;
+                
+                //return new BlockToCalculator(amountBlock2x4Length, amountBlock2x2Length, amountBlock1x2Length);
 
             }
             case 1: {
+                BlockToCalculator blocks = null;
+                
                 int amountBlock2x4Length = (length / 4) * 2;
                 int amountBlock2x2Length = 0;
                 int amountBlock1x2Length = 1 * 2;
-
-                return new BlockToCalculator(amountBlock2x4Length, amountBlock2x2Length, amountBlock1x2Length);
+                int block2x4Width = 0;
+                int block2x2Width = 0;
+                int block1x2Width = 0;
+                
+                blocks = new BlockToCalculator(amountBlock2x4Length, amountBlock2x2Length, amountBlock1x2Length, block2x4Width, block2x2Width, block1x2Width);
+                blockList.add(blocks);
+                return blockList;
+                
+                //return new BlockToCalculator(amountBlock2x4Length, amountBlock2x2Length, amountBlock1x2Length);
 
             }
             case 0: {
+                
+                BlockToCalculator blocks = null;
+                
                 int amountBlock2x4Length = (length / 4) * 2;
                 int amountBlock2x2Length = 0;
                 int amountBlock1x2Length = 0;
-
-                return new BlockToCalculator(amountBlock2x4Length, amountBlock2x2Length, amountBlock1x2Length);
+                int block2x4Width = 0;
+                int block2x2Width = 0;
+                int block1x2Width = 0;
+                
+                blocks = new BlockToCalculator(amountBlock2x4Length, amountBlock2x2Length, amountBlock1x2Length, block2x4Width, block2x2Width, block1x2Width);
+                blockList.add(blocks);
+                return blockList;
+                
+                //return new BlockToCalculator(amountBlock2x4Length, amountBlock2x2Length, amountBlock1x2Length);
 
             }
             default:
@@ -137,9 +180,9 @@ public class CalculateLegoHouse {
         int layers = 4;
         try {
                       
-            BlockToCalculator result = cal.calculateBlocksLength(length);
+//            BlockToCalculator result = cal.calculateBlocksLength(length);
             System.out.println("calculateBlocksLength()");
-            System.out.println(result);
+//            System.out.println(result);
             
             //Test width
             System.out.println("");
@@ -152,8 +195,8 @@ public class CalculateLegoHouse {
             System.out.println("Antal klodser i alt:");
             System.out.println("blocksAndLeyers");
             
-            int resultTre = cal.totalBlocks(layers, result, resultTo);
-            System.out.println(resultTre);
+//            int resultTre = cal.totalBlocks(layers, result, resultTo);
+//            System.out.println(resultTre);
         } catch (LoginSampleException ex) {
             Logger.getLogger(CalculateLegoHouse.class.getName()).log(Level.SEVERE, null, ex);
         }

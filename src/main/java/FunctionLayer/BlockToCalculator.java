@@ -1,5 +1,8 @@
 package FunctionLayer;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author Bo
@@ -12,8 +15,16 @@ public class BlockToCalculator {
     private int block2X4Width;
     private int block2X2Width;
     private int block1X2Width;
+    private List<BlockToCalculator> blockList;
+//     List<BlockToCalculator> blockList = new ArrayList();
+    //BlockToCalculator allBlocks = new BlockToCalculator();
+        
     
     //https://www.javaworld.com/article/2979739/learn-java/java-101-classes-and-objects-in-java.html?page=2
+
+    public BlockToCalculator(List<BlockToCalculator> blockList) {
+        this.blockList = blockList;
+    }
 
     public BlockToCalculator(int amountBlock2X4Length, int amountBlock2x2Length, int amountBlock1x2Length, int block2X4Width, int block2X2Width, int block1X2Width) {
         this.amountBlock2X4Length = amountBlock2X4Length;
@@ -29,8 +40,30 @@ public class BlockToCalculator {
         this.amountBlock2x2Length = amountBlock2x2Length;
         this.amountBlock1x2Length = amountBlock1x2Length;
     }
+    
+//    public List<BlockToCalculator> getAllBlockLength() {
+//        
+//        blockList.add(amountBlock2X4Length);
+//        blockList.add(amountBlock2x2Length);
+//        blockList.add(amountBlock1x2Length);
+//        blockList.add(block2X4Width);
+//        blockList.add(block2X2Width);
+//        blockList.add(block1X2Width);
+//       
+//       return blockList;
+//   }
 
-   public BlockToCalculator() {
+    public List<BlockToCalculator> getBlockList() {
+        return blockList;
+    }
+
+    public void setBlockList(List<BlockToCalculator> blockList) {
+        this.blockList = blockList;
+    }
+
+   
+    
+    public BlockToCalculator() {
         
     }
 
@@ -85,6 +118,28 @@ public class BlockToCalculator {
     @Override
     public String toString() {
         return "BlockToCalculator{" + "amountBlock2X4Length=" + amountBlock2X4Length + ", amountBlock2x2Length=" + amountBlock2x2Length + ", amountBlock1x2Length=" + amountBlock1x2Length + ", block2X4Width=" + block2X4Width + ", block2X2Width=" + block2X2Width + ", block1X2Width=" + block1X2Width + '}';
+    }
+    
+    //Test af getAllBlock metoden
+    public static void main(String[] args) {
+        int amountBlock2X4Length = 1;
+        int amountBlock2x2Length = 2;
+        int amountBlock1x2Length = 3;
+        int block2X4Width = 4;
+        int block2X2Width = 5;
+        int block1X2Width = 6;
+        
+        BlockToCalculator all = new BlockToCalculator();
+        
+        all.setAmountBlock2X4Length(amountBlock2X4Length);
+        all.setAmountBlock2x2Length(amountBlock2x2Length);
+        all.setAmountBlock1x2Length(amountBlock1x2Length);
+        all.setBlock2X4Width(block2X4Width);
+        all.setBlock2X2Width(block2X2Width);
+        all.setBlock1X2Width(block1X2Width);
+        
+//        System.out.println(all.getAllBlockLength());
+        
     }
     
     

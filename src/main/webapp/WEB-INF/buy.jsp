@@ -4,6 +4,7 @@
     Author     : Bo
 --%>
 
+<%@page import="java.util.List"%>
 <%@page import="PresentationLayer.Utilities.RendUtilAllBlocks"%>
 <%@page import="FunctionLayer.BlockToCalculator"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -22,26 +23,15 @@
         
         <!--<%  
             BlockToCalculator all = new BlockToCalculator();
-            //RendUtilAllBlocks ruall = new RendUtilAllBlocks();
+            RendUtilAllBlocks ruall = new RendUtilAllBlocks();
         
-           //List<BlockToCalculator> blockList = all.get
+          // List<BlockToCalculator> blockList = all.getBlockList();
             %>
         <div>
-           <% //RendUtilAllBlocks.blockLengthTable(blockList); %>
+            
+            <%//= RendUtilAllBlocks.blockLengthTable(blockList) %>
         </div>
-       <%
-         
-       out.println("<h2>2x4 længde  " + all.getAmountBlock2X4Length() + "</h2>");
-       out.println("<h2>2x4 længde  " + all.getAmountBlock2x2Length() + "</h2>");
-       out.println("<h2>2x4 længde  " + all.getAmountBlock1x2Length() + "</h2>");
-       out.println("<h2>2x4 længde  " + all.getBlock2X4Width() + "</h2>");
-       out.println("<h2>2x4 længde  " + all.getBlock2X2Width() + "</h2>");
-       out.println("<h2>2x4 længde  " + all.getBlock1X2Width() + "</h2>");
        
-       out.println("Hej");
-       
-       
-       %>
         
         
     </body>
