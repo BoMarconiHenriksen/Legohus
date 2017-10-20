@@ -1,13 +1,14 @@
 package PresentationLayer;
 
-import DBAccess.OrderMapper;
-import FunctionLayer.BlockToCalculator;
+import FunctionLayer.BlocksLengthToCalculator;
+import FunctionLayer.BlocksWidthToCalculator;
+import FunctionLayer.CalculateLegoHouse;
+import static FunctionLayer.CalculateLegoHouse.calculateBlocksLength;
 import FunctionLayer.FacadeCalculator;
 import FunctionLayer.LoginSampleException;
 import FunctionLayer.Order;
 import FunctionLayer.FacadeOrderToDB;
 import FunctionLayer.User;
-import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -47,10 +48,11 @@ public class Calculator extends Command {
         Order order = FacadeOrderToDB.createOrder(id, length, width, layers);
 
         //Skal kalde udregningsmetoderne i FacadeCalculator
-        List<BlockToCalculator> blockLength = FacadeCalculator.calculateBlocksLength(length);
-        BlockToCalculator blockWidth = FacadeCalculator.calculateBlokWidth(width);
-//        int allBlocks = FacadeCalculator.totalBlock(layers, blockLength, blockWidth);
-
+        BlocksLengthToCalculator blockLength = FacadeCalculator.calculateBlocksLength(length);
+        BlocksWidthToCalculator blockWidth = FacadeCalculator.calculateBlokWidth(width);
+        int allBlocks = FacadeCalculator.totalBlock(layers, blockLength, blockWidth);
+        
+        
         //returner til buy.jsp
         return "buy";
     }
@@ -63,13 +65,24 @@ public class Calculator extends Command {
         int layers = 4;
 
         //Test af createOrder metoden. Kan skrive til databasen herfra
-//        FacadeOrderToDB.createOrder(blockLength, blockWidth, layers);
-//        FacadeCalculator.calculateBlocksLength(blockLength);
-//        FacadeCalculator.calculateBlokWidth(blockWidth);
-//        //FacadeCalculator.totalBlock(layers, blockLength, blockWidth);
-//        
-//        System.out.println(blockLength);
-//        System.out.println(blockWidth);
+        
+        FacadeCalculator.calculateBlocksLength(blockLength);
+        FacadeCalculator.calculateBlokWidth(blockWidth);
+//        FacadeCalculator.totalBlock(layers, blockLength, blockWidth);
+        CalculateLegoHouse cal = new CalculateLegoHouse();
+        BlocksLengthToCalculator bl =  calculateBlocksLength(blockLength);
+        
+        //Test udregning length
+        BlocksLengthToCalculator result = cal.calculateBlocksLength(blockLength);
+        System.out.println("calculateBlocksLength()");
+        System.out.println(result);
+
+        System.out.println(blockLength);
+        System.out.println(blockWidth);
+        
+        //Test af objektet
+        int lengthBlock = bl.getAmountBlock2X4Length();
+        System.out.println(lengthBlock);
     }
 
 }

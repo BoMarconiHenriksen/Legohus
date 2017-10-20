@@ -1,12 +1,12 @@
 package FunctionLayer;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
+ * 
  * @author Bo
  */
+//Det var meningen at lave de 2 objekter om til et.
 public class BlockToCalculator {
     
     private int amountBlock2X4Length;

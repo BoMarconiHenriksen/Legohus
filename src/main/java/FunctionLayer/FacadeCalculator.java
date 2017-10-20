@@ -1,22 +1,20 @@
 package FunctionLayer;
 
-import java.util.List;
-
 /**
  *
  * @author Bo
  */
 public class FacadeCalculator  {
     
-public static List<BlockToCalculator> calculateBlocksLength(int length) throws LoginSampleException {
+public static BlocksLengthToCalculator calculateBlocksLength(int length) throws LoginSampleException {
     return CalculateLegoHouse.calculateBlocksLength(length);
 }
 
-public static BlockToCalculator calculateBlokWidth(int width) throws LoginSampleException {
+public static BlocksWidthToCalculator calculateBlokWidth(int width) throws LoginSampleException {
     return CalculateLegoHouse.calculateBlocksWidth(width);
 }
 
-public static int totalBlock(int layers, BlockToCalculator length, BlockToCalculator width) {
+public static int totalBlock(int layers, BlocksLengthToCalculator length, BlocksWidthToCalculator width) {
     return CalculateLegoHouse.totalBlocks(layers, length, width);
 }
     
@@ -31,8 +29,8 @@ public static int totalBlock(int layers, BlockToCalculator length, BlockToCalcul
 //        System.out.println(hs);
         
         //Test af calculateBlokWidth metoden
-        BlockToCalculator bs = calculateBlokWidth(width);
-        System.out.println(bs);
+//        BlockToCalculator bs = calculateBlokWidth(width);
+//        System.out.println(bs);
         
         //Test af hvor mange klodser i alt
 //        int amountBlok = totalBlock(layers, hs, bs);

@@ -4,6 +4,7 @@
     Author     : Bo
 --%>
 
+<%@page import="PresentationLayer.Utilities.RendUtilStykList"%>
 <%@page import="java.util.List"%>
 <%@page import="PresentationLayer.Utilities.RendUtilAllBlocks"%>
 <%@page import="FunctionLayer.BlockToCalculator"%>
@@ -22,14 +23,15 @@
         <h1>Height <%=request.getParameter( "layers" )%> </h1>
         
         <!--<%  
-            BlockToCalculator all = new BlockToCalculator();
-            RendUtilAllBlocks ruall = new RendUtilAllBlocks();
+            //BlockToCalculator all = new BlockToCalculator();
+            //RendUtilAllBlocks ruall = new RendUtilAllBlocks();
         
           // List<BlockToCalculator> blockList = all.getBlockList();
             %>
         <div>
             
             <%//= RendUtilAllBlocks.blockLengthTable(blockList) %>
+            <%= RendUtilStykList.stykListTabel() %>
         </div>
        
         

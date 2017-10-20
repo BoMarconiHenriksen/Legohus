@@ -1,205 +1,151 @@
 package FunctionLayer;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import FunctionLayer.BlockToCalculator;
-
 /**
  *
  * @author Bo
  */
 public class CalculateLegoHouse {
-    
-    
-    
-    
-    public static List <BlockToCalculator> calculateBlocksLength(int length) throws LoginSampleException { 
-        List<BlockToCalculator> blockList = new ArrayList();
+
+    //https://stackoverflow.com/questions/2832472/how-to-return-2-values-from-a-java-method
+    //http://jonskeet.uk/java/passing.html
+    public static BlocksLengthToCalculator calculateBlocksLength(int length) throws LoginSampleException {
         int remainderLength = length % 4;
-        
+
         switch (remainderLength) {
             case 3: {
-                
-                //BlockToCalculator blocks = null;
-                
-                //Antallet af 4x2 klodser på længden
-                //Gange med 2 for at få for begge sider
-                int amountBlock2x4Length = (length / 4) * 2;
-                int amountBlock2x2Length = 1 * 2;
-                int amountBlock1x2Length = 1 * 2;
-                int block2x4Width = 0;
-                int block2x2Width = 0;
-                int block1x2Width = 0;
-                
-                BlockToCalculator blocks = new BlockToCalculator(amountBlock2x4Length, amountBlock2x2Length, amountBlock1x2Length, block2x4Width, block2x2Width, block1x2Width);
-                blockList.add(blocks);
-                return blockList;
-//                return new BlockToCalculator(amountBlock2x4Length, amountBlock2x2Length, amountBlock1x2Length);
-                
+                int amountBlock2x4Length = (length / 4);
+                int amountBlock2x2Length = 1;
+                int amountBlock1x2Length = 1;
+
+                return new BlocksLengthToCalculator(amountBlock2x4Length, amountBlock2x2Length, amountBlock1x2Length);
             }
             case 2: {
-                BlockToCalculator blocks = null;
-                
-                int amountBlock2x4Length = (length / 4) * 2;
-                int amountBlock2x2Length = 1 * 2;
+                int amountBlock2x4Length = (length / 4);
+                int amountBlock2x2Length = 1;
                 int amountBlock1x2Length = 0;
-                int block2x4Width = 0;
-                int block2x2Width = 0;
-                int block1x2Width = 0;
-                
-                blocks = new BlockToCalculator(amountBlock2x4Length, amountBlock2x2Length, amountBlock1x2Length, block2x4Width, block2x2Width, block1x2Width);
-                blockList.add(blocks);
-                return blockList;
-                
-                //return new BlockToCalculator(amountBlock2x4Length, amountBlock2x2Length, amountBlock1x2Length);
 
+                return new BlocksLengthToCalculator(amountBlock2x4Length, amountBlock2x2Length, amountBlock1x2Length);
             }
             case 1: {
-                BlockToCalculator blocks = null;
-                
-                int amountBlock2x4Length = (length / 4) * 2;
+                int amountBlock2x4Length = (length / 4);
                 int amountBlock2x2Length = 0;
-                int amountBlock1x2Length = 1 * 2;
-                int block2x4Width = 0;
-                int block2x2Width = 0;
-                int block1x2Width = 0;
-                
-                blocks = new BlockToCalculator(amountBlock2x4Length, amountBlock2x2Length, amountBlock1x2Length, block2x4Width, block2x2Width, block1x2Width);
-                blockList.add(blocks);
-                return blockList;
-                
-                //return new BlockToCalculator(amountBlock2x4Length, amountBlock2x2Length, amountBlock1x2Length);
+                int amountBlock1x2Length = 1;
+
+                return new BlocksLengthToCalculator(amountBlock2x4Length, amountBlock2x2Length, amountBlock1x2Length);
 
             }
             case 0: {
-                
-                BlockToCalculator blocks = null;
-                
-                int amountBlock2x4Length = (length / 4) * 2;
+                int amountBlock2x4Length = (length / 4);
                 int amountBlock2x2Length = 0;
                 int amountBlock1x2Length = 0;
-                int block2x4Width = 0;
-                int block2x2Width = 0;
-                int block1x2Width = 0;
-                
-                blocks = new BlockToCalculator(amountBlock2x4Length, amountBlock2x2Length, amountBlock1x2Length, block2x4Width, block2x2Width, block1x2Width);
-                blockList.add(blocks);
-                return blockList;
-                
-                //return new BlockToCalculator(amountBlock2x4Length, amountBlock2x2Length, amountBlock1x2Length);
 
+                return new BlocksLengthToCalculator(amountBlock2x4Length, amountBlock2x2Length, amountBlock1x2Length);
             }
             default:
-                String msg = "Error in calculater";
+                String msg = "Error in calculater Length";
                 throw new LoginSampleException(msg);
         }
 
     }
 
-    //Udregning af antal klodser for begge de 2 sider
-    public static BlockToCalculator calculateBlocksWidth(int width) throws LoginSampleException { //
-        BlockToCalculator bl = new BlockToCalculator();
-        
+    //Udregning af antal klodser for bredden
+    public static BlocksWidthToCalculator calculateBlocksWidth(int width) throws LoginSampleException { //
+
+        BlocksWidthToCalculator blockWidth = new BlocksWidthToCalculator();
         int newWidth = width - 4;
         int remainderWidth = newWidth % 4;
 
-        //TODO hvis width er mindre end 4 ??? Minimum 5 bred
         switch (remainderWidth) {
             case 3: {
                 //Antallet af 4x2 klodser på Bredden
-                //Gange med 2 for at få for begge sider
-                int block2x4Width = (newWidth / 4) * 2;
-                int block2x2Width = 1 * 2;
-                int block1x2Width = 1 * 2;
-                int amountBlock2x4Length = bl.getAmountBlock2X4Length();
-                int amountBlock2x2Length = bl.getAmountBlock2x2Length();
-                int amountBlock1x2Length = bl.getAmountBlock1x2Length();
-//                
-                return new BlockToCalculator(amountBlock2x4Length, amountBlock2x2Length, amountBlock1x2Length, block2x4Width, block2x2Width, block1x2Width);
+                int block2x4Width = (newWidth / 4);
+                int block2x2Width = 1;
+                int block1x2Width = 1;
 
+                return new BlocksWidthToCalculator(block2x4Width, block2x2Width, block1x2Width);
             }
             case 2: {
-                int block2x4Width = (newWidth / 4) * 2;
-                int block2x2Width = 1 * 2;
+                int block2x4Width = (newWidth / 4);
+                int block2x2Width = 1;
                 int block1x2Width = 0;
-                int amountBlock2x4Length = bl.getAmountBlock2X4Length();
-                int amountBlock2x2Length = bl.getAmountBlock2x2Length();
-                int amountBlock1x2Length = bl.getAmountBlock1x2Length();
-//               
-                return new BlockToCalculator(amountBlock2x4Length, amountBlock2x2Length, amountBlock1x2Length, block2x4Width, block2x2Width, block1x2Width);
+
+                return new BlocksWidthToCalculator(block2x4Width, block2x2Width, block1x2Width);
 
             }
             case 1: {
-                int block2x4Width = (newWidth / 4) * 2;
+                int block2x4Width = (newWidth / 4);
                 int block2x2Width = 0;
-                int block1x2Width = 1 * 2;
-                int amountBlock2x4Length = bl.getAmountBlock2X4Length();
-                int amountBlock2x2Length = bl.getAmountBlock2x2Length();
-                int amountBlock1x2Length = bl.getAmountBlock1x2Length();
-//                
-                return new BlockToCalculator(amountBlock2x4Length, amountBlock2x2Length, amountBlock1x2Length, block2x4Width, block2x2Width, block1x2Width);
+                int block1x2Width = 1;
+
+                return new BlocksWidthToCalculator(block2x4Width, block2x2Width, block1x2Width);
 
             }
             case 0: {
-                int block2x4Width = (newWidth / 4) * 2;
+                int block2x4Width = (newWidth / 4);
                 int block2x2Width = 0;
                 int block1x2Width = 0;
-                int amountBlock2x4Length = bl.getAmountBlock2X4Length();
-                int amountBlock2x2Length = bl.getAmountBlock2x2Length();
-                int amountBlock1x2Length = bl.getAmountBlock1x2Length();
-//                
-                return new BlockToCalculator(amountBlock2x4Length, amountBlock2x2Length, amountBlock1x2Length, block2x4Width, block2x2Width, block1x2Width);
+
+                return new BlocksWidthToCalculator(block2x4Width, block2x2Width, block1x2Width);
 
             }
             default:
-                String msg = "Error in calculater";
+                String msg = "Error in calculater width";
                 throw new LoginSampleException(msg);
         }
 
     }
 
     //Udregning af et lag, og derefter ganges med x antal lag.
-    public static int totalBlocks(int layers, BlockToCalculator length, BlockToCalculator width) {
+    public static int totalBlocks(int layers, BlocksLengthToCalculator length, BlocksWidthToCalculator width) {
 
-        int blocksFirstLayer = (length.getAmountBlock2X4Length() + length.getAmountBlock2x2Length() + length.getAmountBlock1x2Length())
-                + (width.getBlock2X4Width() + width.getAmountBlock2x2Length() + width.getBlock1X2Width());
+        int blocksFirstLayer = (length.getAmountBlock2X4Length()
+                + length.getAmountBlock2x2Length()
+                + length.getAmountBlock1x2Length())
+                + (width.getBlock2X4Width()
+                + width.getBlock2X2Width()
+                + width.getBlock1X2Width());
 
-        int totalBlocks = blocksFirstLayer * layers;
+        //Gange med 2 for at få alle 4 sider med
+        int totalBlocks = (blocksFirstLayer * 2) * layers;
+        Order order = new Order();
+        order.setAllBlocks(totalBlocks);
 
         return totalBlocks;
     }
-    
-    public static void main(String[] args) {
+
+    public static void main(String[] args) throws LoginSampleException {
         CalculateLegoHouse cal = new CalculateLegoHouse();
-        
+
         //Test af ovenstående metoder
         int length = 13;
         int width = 9;
         int layers = 4;
-        try {
-                      
-//            BlockToCalculator result = cal.calculateBlocksLength(length);
-            System.out.println("calculateBlocksLength()");
-//            System.out.println(result);
-            
-            //Test width
-            System.out.println("");
-            System.out.println("calculateBlocksWidth");
-            BlockToCalculator resultTo = cal.calculateBlocksWidth(width);
-            System.out.println(resultTo);
-            
-            //Test Hvor mange klodser er der?
-            System.out.println("");
-            System.out.println("Antal klodser i alt:");
-            System.out.println("blocksAndLeyers");
-            
-//            int resultTre = cal.totalBlocks(layers, result, resultTo);
-//            System.out.println(resultTre);
-        } catch (LoginSampleException ex) {
-            Logger.getLogger(CalculateLegoHouse.class.getName()).log(Level.SEVERE, null, ex);
-        }
+
+        BlocksLengthToCalculator blockLength = calculateBlocksLength(length);
+
+        //Test udregning length
+        BlocksLengthToCalculator result = cal.calculateBlocksLength(length);
+        System.out.println("calculateBlocksLength()");
+        System.out.println(result);
+
+        //Test width
+        System.out.println("");
+        System.out.println("calculateBlocksWidth");
+        BlocksWidthToCalculator resultTo = cal.calculateBlocksWidth(width);
+        System.out.println(resultTo);
+
+        //Test Hvor mange klodser er der?
+        System.out.println("");
+        System.out.println("Antal klodser i alt:");
+        System.out.println("blocksAndLeyers");
+
+        int resultTre = cal.totalBlocks(layers, result, resultTo);
+        System.out.println(resultTre);
+
+        //Test af objektet
+        int lengthBlock = blockLength.getAmountBlock2X4Length();
+        System.out.println(lengthBlock);
+
     }
 
 }
